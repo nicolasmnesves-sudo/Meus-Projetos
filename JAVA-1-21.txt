@@ -1,0 +1,547 @@
+import com.sun.security.jgss.GSSUtil;
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in).useLocale(Locale.US);
+        int opcao = 0;
+//..............................................................
+
+        while (opcao != 21) {
+            System.out.println("\n---------MENU----------");
+            System.out.println("(digite de 1-20 ou 21 para sair)");
+            System.out.println("1) Avaliar Nota");
+            System.out.println("2) Dia da Semana");
+            System.out.println("3) Digitar Palavra");
+            System.out.println("4) Messes do Ano");
+            System.out.println("5) Formas Geometricas");
+            System.out.println("6) Calculos Simples");
+            System.out.println("7) 10 primeiros numeros naturais");
+            System.out.println("8) Soma dos 10 primeiros numeros naturais");
+            System.out.println("9) Quantidade de termos");
+            System.out.println("10) Media de 10 numeros ");
+            System.out.println("11) Cubo do número até a quantidade digitada");
+            System.out.println("12) Tabela de multiplicação de um determinado número inteiro.");
+            System.out.println("13) Termos do número natural ímpar e sua soma");
+            System.out.println("14) Alfabeto A-Z");
+            System.out.println("15) Encontrar a soma de números pares entre 1 e n");
+            System.out.println("16) Calcular o fatorial de um determinado número");
+            System.out.println("17) Padrão como triângulo de ângulo reto usando um asterisco");
+            System.out.println("18) Triângulo de ângulo reto com números");
+            System.out.println("19) Exibir a tabuada de multiplicação verticalmente");
+            System.out.println("20) Encontrar a soma do primeiro e do último dígito");
+            System.out.println("\n-------------------------");
+
+            if (input.hasNextInt()) {
+                opcao = input.nextInt();
+            } else {
+                System.out.println("Erro: Digite um número válido!");
+                input.next(); // Limpa a entrada inválida
+                continue;
+            }
+
+
+            switch (opcao) {
+                case 1:
+
+                    System.out.println("Digite sua nota: EX(A, B, C, D ou F)");
+                    char nota = input.next().toUpperCase().charAt(0);
+
+
+                    if (nota == 'A') {
+                        System.out.println("EXCELENTE");
+                    }
+                    else if (nota == 'B')
+                    {
+                        System.out.println("MUITO BOM");
+                    }
+                    else if (nota == 'C')
+                    {
+                        System.out.println("BOM");
+                    }
+                    else if (nota == 'D')
+                    {
+                        System.out.println("MEDIA");
+                    }
+                    else if (nota == 'F')
+                    {
+                        System.out.println("FALHOU");
+                    }
+                    else
+                    {
+                        System.out.println("Nota inválida!");
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                    break;
+//..............................................................
+                case 2:
+                    int diaSemana = 0;
+                    System.out.println("digite um dia da semana: EX(1 DOM)");
+                    diaSemana = input.nextInt();
+                    if (diaSemana == 1) {
+                        System.out.println("DOMINGO");
+                    }
+                    else if (diaSemana == 2)
+                    {
+                        System.out.println("SEGUNDA");
+                    }
+                    else if (diaSemana == 3)
+                    {
+                        System.out.println("TERÇA");
+                    }
+                    else if (diaSemana == 4)
+                    {
+                        System.out.println("QUARTA");
+                    }
+                    else if (diaSemana == 5)
+                    {
+                        System.out.println("QUINTA");
+                    }
+                    else if (diaSemana == 6)
+                    {
+                        System.out.println("SEXTA");
+                    }
+                    else if (diaSemana == 7)
+                    {
+                        System.out.println("SABADO");
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                    break;
+//..............................................................
+                case 3:
+                    String palavra;
+                    System.out.println("Digite qualquer palavra:");
+                    palavra = input.next();
+                    System.out.println(palavra);
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                    break;
+//..............................................................
+                case 4:
+                    String messes;
+                    System.out.println("digite um mês do ano: EX(1 JANEIRO)");
+                    diaSemana = input.nextInt();
+                    if (diaSemana == 1) {
+                        System.out.println("JANEIRO");
+                    }
+                    else if (diaSemana == 2)
+                    {
+                        System.out.println("FEVEREIRO");
+                    }
+                    else if (diaSemana == 3)
+                    {
+                        System.out.println("MARÇO");
+                    }
+                    else if (diaSemana == 4)
+                    {
+                        System.out.println("ABRIL");
+                    }
+                    else if (diaSemana == 5)
+                    {
+                        System.out.println("MAIO");
+                    }
+                    else if (diaSemana == 6)
+                    {
+                        System.out.println("JUNHO");
+                    }
+                    else if (diaSemana == 7)
+                    {
+                        System.out.println("JULHO");
+                    }
+                    else if (diaSemana == 8)
+                    {
+                        System.out.println("AGOSTO");
+                    }
+                    else if (diaSemana == 9)
+                    {
+                        System.out.println("SETEMBRO");
+                    }
+                    else if (diaSemana == 10)
+                    {
+                        System.out.println("OUTUBRO");
+                    }
+                    else if (diaSemana == 11)
+                    {
+                        System.out.println("NOVEMBRO");
+                    }
+                    else if (diaSemana == 12)
+                    {
+                        System.out.println("DEZEMBRO");
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                    break;
+//..............................................................
+                case 5:
+
+                    int opcaoG = 0;
+                    while (opcaoG != 5) {
+                        System.out.println("\n---------FORMAS-GEOMETRICAS----------");
+                        System.out.println("(digite de 1-4 ou 5 para sair)");
+                        System.out.println("1) TRIANGULO");
+                        System.out.println("2) CIRCULO");
+                        System.out.println("3) QUADRADO");
+                        System.out.println("4) RETANGULO");
+
+                        if (input.hasNextInt())
+                        {
+                            opcaoG = input.nextInt();
+                        }
+                        else
+                        {
+                            System.out.println("Erro: Digite um número válido!");
+                            input.next();
+                            continue;
+                        }
+                        switch (opcaoG) {
+
+                            case 1:
+                                System.out.print("Digite a base do triângulo: ");
+                                double baseT = input.nextDouble();
+                                System.out.print("Digite a altura do triângulo: ");
+                                double alturaT = input.nextDouble();
+                                // Fórmula da área: (baseT * altura) / 2
+                                double areaT = (baseT * alturaT) / 2;
+                                System.out.println("A área do triângulo é: " + areaT);
+                                break;
+
+                            case 2:
+                                final double PI = 3.14159;
+                                System.out.print("Digite o valor do raio: ");
+                                double raio = input.nextDouble();
+                                double areaC = PI * Math.pow(raio, 2);
+                                System.out.printf("A=%.4f\n", areaC);
+                                break;
+
+                            case 3:
+                                System.out.println("Digite o alado do seu quadrado");
+                                double ladoQ = input.nextDouble();
+                                double quadrado = ladoQ * ladoQ;
+                                System.out.println(quadrado);
+                                break;
+
+                            case 4:
+                                System.out.print("Digite a base: ");
+                                double base = input.nextDouble();
+                                System.out.print("Digite a altura: ");
+                                double altura = input.nextDouble();
+                                double area = base * altura;
+                                System.out.println("Área: " + area);
+                                break;
+
+                            case 5:
+                                System.out.println("Saindo...");
+                                break;
+
+                            default:
+                                System.out.println("Opção fora do intervalo 1-5.");
+                                break;
+                        }
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 6:
+
+                    int opcaoM = 0;
+                    while (opcaoM != 5)
+                    {
+                        System.out.println("\n---------MATEMATICA----------");
+                        System.out.println("(digite de 1-4 ou 5 para sair)");
+                        System.out.println("1) Soma");
+                        System.out.println("2) Subtração");
+                        System.out.println("3) Divisão");
+                        System.out.println("4) Multiplicação");
+
+                        if (input.hasNextInt())
+                        {
+                            opcaoM = input.nextInt();
+                        }
+                        else
+                        {
+                            System.out.println("Erro: Digite um número válido!");
+                            input.next();
+                            continue;
+                        }
+                        switch (opcaoM)
+                        {
+
+                            case 1:
+                                System.out.println("Digite um numero para soma-lo:");
+                                int numSoma1 = input.nextInt();
+                                System.out.println("Digite agora um segundo numero:");
+                                int numSoma2 = input.nextInt();
+                                int resultSoma = numSoma2 + numSoma1;
+                                System.out.println(resultSoma);
+                                break;
+
+                            case 2:
+                                System.out.println("Digite um numero para subitrai-lo:");
+                                int numSubitrair1 = input.nextInt();
+                                System.out.println("Digite agora um segundo numero:");
+                                int numSubitrair2 = input.nextInt();
+                                int resultSubitracao = numSubitrair1 - numSubitrair2;
+                                System.out.println(resultSubitracao);
+                                break;
+
+                            case 3:
+                                System.out.println("Digite um numero para dividi-lo:");
+                                double numDividir1 = input.nextInt();
+                                System.out.println("Digite agora um segundo numero:");
+                                double numDividir2 = input.nextInt();
+                                double resultDivisao = numDividir1 / numDividir2;
+                                System.out.println(resultDivisao);
+                                break;
+
+                            case 4:
+                                System.out.println("Dite um numero para multiplica-lo");
+                                int numMultiplicar1 = input.nextInt();
+                                System.out.println("Digite agora um segundo numero:");
+                                int numMultiplicar2 = input.nextInt();
+                                int resultMultiplicacao = numMultiplicar1 * numMultiplicar2;
+                                System.out.println(resultMultiplicacao);
+                                break;
+
+                            case 5:
+                                System.out.println("digite 1 para voltar ao menu");
+                                input.next();
+                                break;
+                        }
+                    }
+//..............................................................
+                case 7:
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        System.out.println(i);
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 8:
+                    int somaNat = 0;
+                    for (int i = 1; i <= 10; i++)
+                    {
+                        somaNat += i;
+                    }
+                    System.out.println("A soma dos 10 primeiros números naturais é: " + somaNat);
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 9:
+                    int somaT = 0;
+
+                    System.out.println("Digite a quantidade de termos (n):");
+                    int quantidadeTermo = input.nextInt();
+
+                    System.out.println("Os primeiros " + quantidadeTermo + " números naturais são:");
+                    for (int i = 0; i < quantidadeTermo; i++) {
+
+                        System.out.print(i + " ");
+                        somaT += i;
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 10:
+
+                double soma = 0;
+                int quantidade = 10;
+
+                System.out.println("Digite " + quantidade + " números:");
+
+                for (int i = 1; i <= quantidade; i++)
+                {
+                    System.out.print("Número " + i + ": ");
+                    double numero = input.nextDouble();
+
+                    soma += numero;
+                }
+
+                double media = soma / quantidade;
+
+                    System.out.println("A soma eh: " + soma);
+                    System.out.println("A media eh: " + media);
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 11:
+                    System.out.println("digite o numero:");
+                    int numDigite = input.nextInt();
+
+                    for (int i = 0; i <=numDigite; i++)
+                    {
+                        long cube = (long)i * i * i;
+
+                        System.out.println("o cubo de " + i + "eh " + cube);
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 12:
+                    System.out.println("digite um numero para ver sua tabuada");
+                    long numTabuada = input.nextLong();
+
+                    for (int i = 0; i <= 10; i++)
+                    {
+                        long resultTabuada = numTabuada * i;
+                        System.out.println(numTabuada + " multiplicado por " + i + " eh " + resultTabuada);
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 13:
+                    System.out.print("Digite a quantidade de termos (n): ");
+                    int n = input.nextInt();
+                    int somaI = 0;
+
+                    System.out.println("\nOs primeiros " + n + " números ímpares são:");
+                    for (int i = 1; i <= n; i++)
+                    {
+                        int impar = 2 * i - 1;
+
+                        System.out.print(impar + " ");
+                        somaI += impar;
+                    }
+
+                    System.out.println("\n\nA soma desses " + n + " números é: " + somaI);
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 14:
+                    for (char letra = 'a'; letra <= 'z'; letra++) {
+                        System.out.println(letra);
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 15:
+                    System.out.println("Digite um numero");
+                    int number = input.nextInt();
+
+                    int somaP = 0;
+
+                    for (int i = 0; i < number ; i++) {
+                        if (i % 2 == 0) {
+                            somaP += i;
+                            System.out.println(somaP);
+                        }
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 16:
+                    System.out.println("digite um numero");
+                    int numberF = input.nextInt();
+
+                    long fatorial = 1;
+
+                    for (int i = numberF; i >= 1; i--) {
+                        fatorial *= i;
+                        System.out.println(numberF + "! = " + fatorial);
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+
+//..............................................................
+                case 17:
+                    System.out.print("Digite o número de linhas: ");
+                    int linhas = input.nextInt();
+
+                    for (int i = 1; i <= linhas; i++) {
+
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print("*");
+                        }
+                        System.out.println();
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 18:
+                    System.out.println("digite o numero de linhas");
+                    int n1;
+                    n1 = input.nextInt();
+
+                    for (int i = 0; i <= n1; i++) {
+                        for (int j = 1; j <= i; j++) {
+                            System.out.print(i);
+                        }
+                        System.out.println();
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 19:
+                    System.out.print("Deseja a tabuada de 1 até quanto? ");
+                    int n2 = input.nextInt();
+
+                    // Loop de 1 a 10 (as linhas da tabuada)
+                    for (int i = 1; i <= 10; i++) {
+                        // Loop de 1 a n (as colunas/números escolhidos)
+                        for (int j = 1; j <= n2; j++) {
+                            System.out.printf("%d x %d = %d \t", j, i, (j * i));
+                        }
+                        System.out.println(); // Pula linha após completar a fileira horizontal
+                    }
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+                case 20:
+                    System.out.print("Digite um número inteiro: ");
+                    int numero = input.nextInt();
+
+                    // Garante que trabalharemos com valores positivos
+                    int n3 = Math.abs(numero);
+
+                    // O último dígito é o resto da divisão por 10
+                    int ultimoDigito = n3 % 10;
+
+                    // Para achar o primeiro, dividimos por 10 até sobrar apenas um dígito
+                    int primeiroDigito = n3;
+                    while (primeiroDigito >= 10) {
+                    primeiroDigito /= 10;
+                    }
+
+                    int soma1 = primeiroDigito + ultimoDigito;
+
+                    System.out.println("Primeiro dígito: " + primeiroDigito);
+                    System.out.println("Último dígito: " + ultimoDigito);
+                    System.out.println("A soma é: " + soma1);
+                    System.out.println("digite 1 para voltar ao menu");
+                    input.next();
+                break;
+//..............................................................
+
+                            case 21:
+                                System.out.println("Saindo...");
+                                break;
+
+
+                            default:
+                                System.out.println("Opção fora do intervalo 1-20.");
+                                break;
+                        }
+                    }
+                    input.close();
+            }
+        }
+
