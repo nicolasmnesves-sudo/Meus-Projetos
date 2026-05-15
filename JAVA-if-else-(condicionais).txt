@@ -1,0 +1,354 @@
+---------------------------------------------------------------------------------1--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class HotelHorizonteBelo {
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+       System.out.print("Digite a quantidade de diárias: ");
+       int diarias = input.nextInt();
+//.................................................................
+       double diariaValor = 50.00;
+       double taxa = 0;
+
+
+       if (diarias < 15){
+           taxa = 1.50;
+       } else if (diarias == 15){
+           taxa = 1.00;
+       } else{
+           taxa = 0.50;
+       }
+//..................................................................
+       double total = (diariaValor + taxa) * diarias;
+
+
+       System.out.println("--------CONTA-A-PAGAR--------");
+       System.out.println("Quantidade de diarias eh " + diarias);
+       System.out.println("O valor de taxa eh R$ " + taxa);
+       System.out.println("O valor total a pagar eh R$ " + total);
+
+
+       input.close();
+   }
+}
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------2--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class verificar {
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+       System.out.println("digite um numero");
+       int num1 = input.nextInt();
+       System.out.println("digite um segundo numero");
+       int num2 = input.nextInt();
+//.................................................................
+       if (num1 < 0 && num2 > 0 ){
+           System.out.println("true");
+       } else {
+           System.out.println("false");
+       }
+       input.close();
+   }
+}
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------3--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class verificar {
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+       System.out.println("digite um numero");
+       int num1 = input.nextInt();
+       System.out.println("digite um segundo numero");
+       int num2 = input.nextInt();
+//.................................................................
+       int diferenca = (num1 - num2);
+       if (num1 > num2){
+           diferenca = diferenca * 2;
+       }
+//.................................................................
+       System.out.println("o resultado final foi de " + diferenca);
+       input.close();
+   }
+}
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------4--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class verificar {
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+System.out.println("digite um primeiro numero");
+int num1 = input.nextInt();
+System.out.println("digite um segundo numero");
+int num2 = input.nextInt();
+System.out.println("digite um terceiro numero");
+int num3 = input.nextInt();
+//.................................................................
+       if (num1 >= num2 && num1 >= num3 ){
+           System.out.println("O primeiro numero eh o maior");
+       } else if (num2 >= num1 && num2 >= num3) {
+           System.out.println("o segundo numero eh o maior");
+       } else if (num3 >= num1 && num3 >= num2) {
+           System.out.println("o terceiro numero eh o maior");
+       }
+       input.close();
+   }
+}
+
+
+
+
+
+---------------------------------------------------------------------------------5--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class notas{
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+   System.out.println("digite sua nota em Matematica:");
+   double mat = input.nextDouble();
+   System.out.println("digite sua nota em Fisica:");
+   double fis = input.nextDouble();
+   System.out.println("digite sua nota em Quimica:");
+   double qui = input.nextDouble();
+//..................................................................
+       double total3 = mat + fis + qui;
+       double matFis = mat + fis;
+//..................................................................
+       if (mat >= 65 && fis >= 55 && qui >= 50) {
+           if (total3 >= 180 || matFis >= 140){
+               System.out.println("\nO candidato eh ELEGÍVEL para admissao.");
+           }else {
+               System.out.println("\nO candidato nao eh elegivel para edmissao.");
+           }
+       }else {
+           System.out.println("\nO candidato nao eh elegivel para edmissao.");
+       }
+       input.close();
+   }
+}
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------6--------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class triangulo{
+   public static void main(String[] args) {
+
+
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+       System.out.println("digite o primeiro lado do triangulo:");
+       double lado1 = input.nextDouble();
+       System.out.println("digite o segundo lado do triangulo:");
+       double lado2 = input.nextDouble();
+       System.out.println("digite o terceiro lado do triangulo:");
+       double lado3 = input.nextDouble();
+//.................................................................
+   if (lado1 == lado2 && lado2 ==lado3){
+       System.out.println("o triangulo eh Equilatero");
+   } else if (lado1 == lado2 || lado2 == lado3 || lado3 == lado1) {
+       System.out.println("o triangulo eh Isosceles");
+   } else {
+       System.out.println("o triangulo eh Escaleno");
+   }
+       input.close();
+   }
+}
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------7--------------------------------------------------------------------------------
+
+
+
+
+
+
+import java.util.Scanner;
+import java.util.Locale;
+
+
+class verificar {
+   public static void main(String[] args) {
+       // Configura o Scanner para aceitar pontos em vez de vírgulas (opcional)
+       Scanner input = new Scanner(System.in).useLocale(Locale.US);
+//.................................................................
+       System.out.print("Digite o ID do Cliente: ");
+       int id = input.nextInt();
+       input.nextLine(); // Limpar o buffer do teclado
+
+
+       System.out.print("Digite o nome do Cliente: ");
+       String nome = input.nextLine();
+
+
+       System.out.print("Digite a unidade consumida: ");
+       double unidades = input.nextDouble();
+//.................................................................
+   double valorUnidade;
+       if (unidades < 200) {
+           valorUnidade = 1.20;
+   } else if (unidades < 400) {
+           valorUnidade = 1.50;
+       }else if (unidades < 600){
+           valorUnidade = 1.80;
+       }else {
+           valorUnidade = 2.00;
+       }
+//..................................................................
+       double valorInicial = unidades * valorUnidade;
+       double sobretaxa = 0;
+
+
+       if (valorUnidade >= 400){
+           sobretaxa = valorInicial * 0.15;
+       }
+//...................................................................
+       double valorTotal = valorInicial + sobretaxa;
+
+
+       if (valorTotal < 100) {
+           valorTotal = 100;
+       }
+
+
+       System.out.println("--------------Resumo-------------");
+       System.out.println("o ID do cliente eh " + id);
+       System.out.println("O nome do cliente eh " + nome);
+       System.out.println("Unidades Consumidas: " + unidades);
+       System.out.println("Valor de unidade " + valorUnidade);
+       System.out.println("valor inicial da conta: " +valorInicial);
+       System.out.println("valor de sobreTaxa:" + sobretaxa);
+       System.out.println("VALOR TOTAL A PAGAR:" + valorTotal);
+       System.out.println("---------------------------------");
+
+
+
+
+       input.close();
+   }
+}
+
+
+
+
+
+
+---------------------------------------------------------------------------------END--------------------------------------------------------------------------------
