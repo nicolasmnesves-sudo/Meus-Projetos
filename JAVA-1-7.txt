@@ -1,0 +1,243 @@
+===============================================================MAIN===================================================================
+import java.util.Scanner;
+import java.util.Locale;
+//Nicolas-Miguel-Neves.....28/05/2026.....Funções-e-Metodos.1a7.
+
+
+class Main {
+    static Scanner input = new Scanner(System.in).useLocale(Locale.US);
+
+    public static void main(String[] args) {
+
+        int opcao = -1;
+
+        while (opcao != 0) {
+            System.out.println("===============================");
+            System.out.println("Digite um número de 1 a 7, (ou 0 para sair)");
+
+            opcao = input.nextInt();{
+                switch (opcao) {
+                        //SAIR....
+                    case 0:
+                            System.out.println("Saindo do programa...");
+                        break;
+//======================================================================================================================
+                       //TABUADA
+                    case 1:
+
+                        System.out.print("Digite o número para ver a tabuada: ");
+                        int numeroDigitado = input.nextInt();
+
+                        // Nome da classe + ponto + nome da função
+                        Operacoes.calcularTabuada(numeroDigitado);
+                        System.out.println("Operação encerrada. Obrigado!");
+
+                        break;
+//======================================================================================================================
+                    case 2:
+                        //LINHA
+                        System.out.println("Digite um caractere: ");
+                        char charactDigitado = input.next().charAt(0);
+                        System.out.println("Digite a quantidade: ");
+                        int quantidadeDigitada = input.nextInt();
+
+                        Operacoes.linha(charactDigitado, quantidadeDigitada);
+                        System.out.println("Operação encerrada. Obrigado!");
+
+                        break;
+//======================================================================================================================
+                    case 3:
+                        //CONVERSÃO
+                        System.out.println("Digite a catação atual do dolar: ");
+                        double cotacao = input.nextDouble();
+                        System.out.println("Digite o valor para ser convertido em real: ");
+                        double valor = input.nextDouble();
+
+                        Operacoes.conversaoDolar(cotacao, valor);
+                        System.out.println("Operação encerrada. Obrigado!");
+
+                        break;
+//======================================================================================================================
+                    case 4:
+                        //DESCONTO
+                        System.out.println("Digite o valor total da sua compra: ");
+                        double valorTotal = input.nextDouble();
+                        Operacoes.desconto(valorTotal);
+                        System.out.println("Operação encerrada. Obrigado!");
+                        break;
+//======================================================================================================================
+                    case 5:
+                        //LOGIN
+                        System.out.println("--- SISTEMA DE LOGIN ---");
+
+                        System.out.print("Digite o usuário: ");
+                        String usuarioDigitado = input.nextLine();
+
+                        input.next();
+
+                        System.out.print("Digite a senha: ");
+                        String senhaDigitada = input.nextLine();
+                        input.next();
+
+
+                        if (Operacoes.verificarCredenciais(usuarioDigitado, senhaDigitada)) {
+                            Operacoes.exibirPainelControle();
+                        } else {
+                            System.out.println("\n[Erro] Usuário ou senha incorretos. Acesso negado.");
+                        }
+                        System.out.println("Operação encerrada. Obrigado!");
+                        break;
+//======================================================================================================================
+                    case 6:
+                        //TRIANGULO
+                        System.out.println("Digite o comprimento do primeiro lado");
+                        int lado1 = input.nextInt();
+                        System.out.println("Digite o comprimento do primeiro lado");
+                        int lado2 = input.nextInt();
+                        System.out.println("Digite o comprimento do primeiro lado");
+                        int lado3 = input.nextInt();
+
+                        if (Operacoes.triangulo(lado1, lado2, lado3)){
+                            System.out.println("É possível formar um triângulo.");
+                        } else {
+                            System.out.println("Não é possível formar um triângulo.");
+                        }
+                        System.out.println("Operação encerrada. Obrigado!");
+                        break;
+//======================================================================================================================
+                    case 7:
+                        //SALDO
+                        double saldo = 500.00;
+                        double valorSaque;
+
+                        do {
+                            // Exibe o saldo atual formatado
+                            System.out.printf("%nSaldo atual em conta: R$ %.2f%n", saldo);
+                            System.out.print("Digite o valor do saque (ou 0 para sair): ");
+                            valorSaque = input.nextDouble();
+
+
+                            if (valorSaque == 0) {
+                                System.out.println("Operação encerrada. Obrigado!");
+                                break;
+                            }
+
+
+                            saldo = Operacoes.sacarDinheiro(saldo, valorSaque);
+
+                        } while (valorSaque != 0);
+                        System.out.println("Operação encerrada. Obrigado!");
+                        break;
+                }
+            }
+        }
+    }
+}
+===============================================================funcoes===================================================================
+
+class Operacoes {
+
+    //1 Multi
+    public static void calcularTabuada(int numero)
+    {
+        System.out.println("--- Tabuada do " + numero + " ---");
+        for (int i = 1; i <= 10; i++)
+        {
+            System.out.println(numero + " x " + i + " = " + (numero * i));
+        }
+    }
+
+    //2 Linha------------------------------------------------------
+    public static void linha(char caractere, int num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            System.out.print(caractere);
+        }
+    }
+
+    //3 Dolar------------------------------------------------------
+    public static void conversaoDolar(double cotacaoDolar, double valor)
+    {
+        double convertido = valor * cotacaoDolar;
+        System.out.println(convertido);
+    }
+
+    //4 Loja-------------------------------------------------------
+    public static void desconto(double totalValor){
+
+        if (totalValor < 100)
+        {
+            System.out.println("Você não receberá descontos ");
+            System.out.println(totalValor);
+        }
+        else if (totalValor > 100 && totalValor < 300)
+        {
+            System.out.println("Você recebeu 10% de desconto!");
+            totalValor *= 0.90;
+            System.out.println("O valor com o desconto aplicado: " + totalValor);
+        }
+        else if (totalValor > 300){
+            System.out.println("Você recebeu 15% de desconto!");
+            totalValor *= 0.85;
+            System.out.println("O valor com o desconto aplicado " + totalValor);
+
+        }
+    }
+
+    //5 Login
+    public static boolean verificarCredenciais(String usuario, String senha) {
+        if (usuario.equals("admin") && senha.equals("1234")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //5 Login2
+    public static void exibirPainelControle() {
+        try {
+            // Identifica o sistema operacional para aplicar o comando correto de limpeza
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+
+            for (int i = 0; i < 50; i++) System.out.println();
+        }
+
+
+        System.out.println("==================================================");
+        System.out.println("Bem-vindo ao painel de controle do administrador.");
+        System.out.println("==================================================");
+    }
+
+    //6 Triangulo--------------------------------------------------
+    public static boolean triangulo(int ladoA, int ladoB, int ladoC)
+    {
+        return (ladoA < ladoB + ladoC) && (ladoB < ladoA + ladoC) && (ladoC < ladoA + ladoB);
+    }
+
+    //7 Saque
+    public static double sacarDinheiro(double saldoAtual, double valorSaque) {
+        if (valorSaque < 0){
+            System.out.println("VALOR INVALIDO");
+            return saldoAtual;
+        }
+        if (valorSaque > saldoAtual){
+            System.out.println("SALDO INSUFICIENTE");
+            return saldoAtual;
+        }
+
+        saldoAtual -= valorSaque;
+        return saldoAtual;
+    }
+
+
+
+}
